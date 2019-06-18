@@ -1,2 +1,2 @@
-./*.dist.js linguist-vendored
-./index*.js linguist-vendored
+*js linguist-generated=true
+test*.js linguist-generated=false
