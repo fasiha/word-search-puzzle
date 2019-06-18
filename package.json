@@ -1,0 +1,16 @@
+{
+  "name": "word-search-puzzle",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test*js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "Unlicense",
+  "devDependencies": {
+    "tape": "^4.10.2",
+    "typescript": "^3.5.2"
+  }
+}
