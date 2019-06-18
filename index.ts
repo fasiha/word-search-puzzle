@@ -35,6 +35,19 @@ function placementEnd({length, direction, start: [x, y]}: Placement): number[] {
   case 'se': return [x - length, y + length];
   }
 }
+function directionOk(str: string) {
+  switch (str) {
+  case 'e': return 1;
+  case 'w': return 1;
+  case 'n': return 1;
+  case 's': return 1;
+  case 'nw': return 1;
+  case 'ne': return 1;
+  case 'sw': return 1;
+  case 'se': return 1;
+  default: return 0;
+  }
+}
 function randInt(max: number) { return Math.round(Math.random() * max); }
 function range(len: number) { return Array.from(Array(len), (_, n) => n); }
 function copyGrid<T>(grid: T[][]): T[][] { return Array.from(grid, row => Array.from(row, elt => elt)); }
@@ -42,6 +55,7 @@ function last<T>(arr: T[]) { return arr[arr.length - 1]; }
 export function makeGrid(words: string[], size: number, directions: Direction[]): {grid: Grid, key: Grid} {
   if (words.some(word => word.length > size)) { throw new Error('grid too small'); }
   directions = Array.from(new Set(directions));
+  if (!directions.every(directionOk)) { throw new Error('some directions flawed'); }
   let grid = Array.from(Array(size), _ => Array.from(Array(size), _ => ''));
 
   let tries = 0;

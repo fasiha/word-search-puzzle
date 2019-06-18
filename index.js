@@ -30,6 +30,19 @@ function placementEnd({ length, direction, start: [x, y] }) {
         case 'se': return [x - length, y + length];
     }
 }
+function directionOk(str) {
+    switch (str) {
+        case 'e': return 1;
+        case 'w': return 1;
+        case 'n': return 1;
+        case 's': return 1;
+        case 'nw': return 1;
+        case 'ne': return 1;
+        case 'sw': return 1;
+        case 'se': return 1;
+        default: return 0;
+    }
+}
 function randInt(max) { return Math.round(Math.random() * max); }
 function range(len) { return Array.from(Array(len), (_, n) => n); }
 function copyGrid(grid) { return Array.from(grid, row => Array.from(row, elt => elt)); }
@@ -39,6 +52,9 @@ function makeGrid(words, size, directions) {
         throw new Error('grid too small');
     }
     directions = Array.from(new Set(directions));
+    if (!directions.every(directionOk)) {
+        throw new Error('some directions flawed');
+    }
     let grid = Array.from(Array(size), _ => Array.from(Array(size), _ => ''));
     let tries = 0;
     let wordsPlaced = 0;
