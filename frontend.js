@@ -9,7 +9,6 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const puzzle = __importStar(require("./index"));
 addEventListener("load", () => {
-    console.log('whee!');
     const button = document.getElementById('makePuzzle');
     const table = document.getElementById('outputTable');
     const textarea = document.getElementById('wordsInput');

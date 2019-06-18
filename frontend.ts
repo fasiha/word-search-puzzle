@@ -1,6 +1,5 @@
 import * as puzzle from './index';
 addEventListener("load", () => {
-  console.log('whee!');
   const button = document.getElementById('makePuzzle');
   const table = document.getElementById('outputTable');
   const textarea = document.getElementById('wordsInput') as HTMLTextAreaElement | null;
