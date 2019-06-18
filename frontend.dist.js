@@ -15,7 +15,8 @@ addEventListener("load", () => {
     const table = document.getElementById('outputTable');
     const textarea = document.getElementById('wordsInput');
     const sizearea = document.getElementById('sizeInput');
-    if (button && textarea && sizearea && table) {
+    const wordsList = document.getElementById('wordsList');
+    if (button && textarea && sizearea && table && wordsList) {
         button.addEventListener('click', () => {
             const wordsRaw = textarea.value || '';
             const words = wordsRaw.trim().split(/\s+/);
@@ -23,10 +24,13 @@ addEventListener("load", () => {
             const directions = Array.from(document.querySelectorAll('input[type="checkbox"]:checked'))
                 .map(e => e.id.replace('Direction', ''));
             const p = puzzle.makeGrid(words, size, directions);
-            console.log(p.key.map(v => v.map(x => x || '_').join('')).join('\n'));
-            console.log(p);
-            let tableHtml = `<table>` + p.grid.map(row => '<tr>' + row.map(c => `<td>${c}</td>`).join('') + '</tr>').join('') + `</table>`;
+            let tableHtml = p.grid
+                .map(row => '<tr>' +
+                row.map(c => `<td style="font-size: ${Math.floor(100 / size)}vmax">${c}</td>`).join('') +
+                '</tr>')
+                .join('');
             table.innerHTML = tableHtml;
+            wordsList.innerHTML = words.join(', ');
         });
     }
 });

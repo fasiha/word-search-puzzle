@@ -1,10 +1,22 @@
 <meta charset="UTF-8">
-<p>Enter words below, separated by spaces (or line breaks)</p>
-<textarea id="wordsInput"></textarea>
-<p>Enter the size of the grid (e.g., 5 for a five by five grid)</p>
-<textarea id="sizeInput"></textarea>
+<style>
+  @media print {
+    .configOnly {
+      display: none;
+    }
 
-<p>
+  }
+
+  p#wordsList {
+    font-size: 5vw;
+  }
+</style>
+<p class="configOnly">Enter words below, separated by spaces (or line breaks)</p>
+<textarea class="configOnly" id="wordsInput"></textarea>
+<p class="configOnly">Enter the size of the grid (e.g., 5 for a five by five grid)</p>
+<textarea class="configOnly" id="sizeInput"></textarea>
+
+<p class="configOnly">
   <input type="checkbox" id="nDirection" name="nDirection" checked>
   <label for="nDirection">North</label>
   —
@@ -30,10 +42,10 @@
   <label for="seDirection">Southeast</label>
 </p>
 
+<button class="configOnly" id="makePuzzle">Make puzzle</button>
 
-<button id="makePuzzle">Make puzzle</button>
-
-<table id="outputTable"></table>
+<p id="wordsList"></p>
+<table style="text-align: center; width: 100vmax; table-layout: fixed" id="outputTable"></table>
 
 <script src="index.dist.js"></script>
 <script src="frontend.dist.js"></script>
