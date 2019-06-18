@@ -59,7 +59,7 @@ export function makeGrid(words: string[], size: number, directions: Direction[])
     // check boundary condition
     if (end.some(e => e < 0 || e > size - 1)) { continue; }
     // check overlap condition
-    if (!range(length).every(n => {
+    if (!range(length + 1).every(n => {
           const [x, y] = placementEnd({...candidate, length: n});
           return grid[y][x] === '' || grid[y][x] === word[n];
         })) {
