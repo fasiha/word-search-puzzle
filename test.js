@@ -1,7 +1,7 @@
 const test = require('tape');
 const puzzle = require('./index');
 test('basic', t => {
-  const p = puzzle.makeGrid(['HELO', 'PARO'], 4, ['nw', 'sw']);
+  const p = puzzle.makeGrid(['HELO', 'PARO'], 4, ['n', 'w', 's', 'e']);
   t.ok(p);
   t.ok(p.grid);
   t.ok(p.key);
