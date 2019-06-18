@@ -1,1 +1,2 @@
-./index.js linguist-vendored
+./*.dist.js linguist-vendored
+./index*.js linguist-vendored
