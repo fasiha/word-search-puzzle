@@ -96,6 +96,7 @@ function makeGrid(words, size, directions) {
     let grid = Array.from(Array(size), _ => Array.from(Array(size), _ => ''));
     let tries = 0;
     let wordsPlaced = 0;
+    let placements = [];
     while (wordsPlaced < words.length) {
         if (++tries > 1000 * words.length) {
             throw new Error('giving up');
@@ -121,6 +122,7 @@ function makeGrid(words, size, directions) {
         }
         // candidate passes! Update grid
         wordsPlaced++;
+        placements.push(candidate);
         for (const n of range(length + 1)) {
             const [x, y] = placementEnd(Object.assign({}, candidate, { length: n }));
             grid[y][x] = word[n];
@@ -130,7 +132,7 @@ function makeGrid(words, size, directions) {
     for (let row of grid) {
         row.forEach((c, i) => row[i] = c || randEnglishLetter());
     }
-    return { grid, key };
+    return { grid, key, placements };
 }
 exports.makeGrid = makeGrid;
 

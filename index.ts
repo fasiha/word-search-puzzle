@@ -52,7 +52,7 @@ function randInt(max: number) { return Math.round(Math.random() * max); }
 function range(len: number) { return Array.from(Array(len), (_, n) => n); }
 function copyGrid<T>(grid: T[][]): T[][] { return Array.from(grid, row => Array.from(row, elt => elt)); }
 function last<T>(arr: T[]) { return arr[arr.length - 1]; }
-export function makeGrid(words: string[], size: number, directions: Direction[]): {grid: Grid, key: Grid} {
+export function makeGrid(words: string[], size: number, directions: Direction[]) {
   if (words.some(word => word.length > size)) { throw new Error('grid too small'); }
   directions = Array.from(new Set(directions));
   if (!directions.every(directionOk)) { throw new Error('some directions flawed'); }
@@ -60,6 +60,7 @@ export function makeGrid(words: string[], size: number, directions: Direction[])
 
   let tries = 0;
   let wordsPlaced = 0;
+  let placements: Placement[] = [];
   while (wordsPlaced < words.length) {
     if (++tries > 1000 * words.length) { throw new Error('giving up'); }
     const word = words[wordsPlaced];
@@ -81,6 +82,7 @@ export function makeGrid(words: string[], size: number, directions: Direction[])
     }
     // candidate passes! Update grid
     wordsPlaced++;
+    placements.push(candidate);
     for (const n of range(length + 1)) {
       const [x, y] = placementEnd({...candidate, length: n});
       grid[y][x] = word[n];
@@ -88,5 +90,5 @@ export function makeGrid(words: string[], size: number, directions: Direction[])
   }
   const key = copyGrid(grid);
   for (let row of grid) { row.forEach((c, i) => row[i] = c || randEnglishLetter()); }
-  return {grid, key};
+  return {grid, key, placements};
 }
