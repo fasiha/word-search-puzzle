@@ -4,12 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "tape test*js"
+    "test": "tape test*js",
+    "build": "tsc -p .",
+    "dist": "browserify index.js -s puzzle -o index.dist.js && browserify frontend.js -o frontend.dist.js",
+    "watch": "fswatch -0 -o -l .1 *.js | xargs -0 -n 1 -I {} npm run dist"
   },
   "keywords": [],
   "author": "",
   "license": "Unlicense",
   "devDependencies": {
+    "browserify": "^16.2.3",
     "tape": "^4.10.2",
     "typescript": "^3.5.2"
   }

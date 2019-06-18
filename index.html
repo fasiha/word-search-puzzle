@@ -1,0 +1,39 @@
+<meta charset="UTF-8">
+<p>Enter words below, separated by spaces (or line breaks)</p>
+<textarea id="wordsInput"></textarea>
+<p>Enter the size of the grid (e.g., 5 for a five by five grid)</p>
+<textarea id="sizeInput"></textarea>
+
+<p>
+  <input type="checkbox" id="nDirection" name="nDirection" checked>
+  <label for="nDirection">North</label>
+  —
+  <input type="checkbox" id="sDirection" name="sDirection" checked>
+  <label for="sDirection">South</label>
+  —
+  <input type="checkbox" id="wDirection" name="wDirection" checked>
+  <label for="wDirection">West</label>
+  —
+  <input type="checkbox" id="eDirection" name="eDirection" checked>
+  <label for="eDirection">East</label>
+  —
+  <input type="checkbox" id="nwDirection" name="nwDirection" checked>
+  <label for="nwDirection">Northwest</label>
+  —
+  <input type="checkbox" id="neDirection" name="neDirection" checked>
+  <label for="neDirection">Northeast</label>
+  —
+  <input type="checkbox" id="swDirection" name="swDirection" checked>
+  <label for="swDirection">Southwest</label>
+  —
+  <input type="checkbox" id="seDirection" name="seDirection" checked>
+  <label for="seDirection">Southeast</label>
+</p>
+
+
+<button id="makePuzzle">Make puzzle</button>
+
+<table id="outputTable"></table>
+
+<script src="index.dist.js"></script>
+<script src="frontend.dist.js"></script>
