@@ -28,7 +28,7 @@ function placementEnd({ length, direction, start: [x, y] }) {
         case 'nw': return [x - length, y - length];
         case 'ne': return [x + length, y - length];
         case 'sw': return [x - length, y + length];
-        case 'se': return [x - length, y + length];
+        case 'se': return [x + length, y + length];
     }
 }
 function directionOk(str) {
