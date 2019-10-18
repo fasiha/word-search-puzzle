@@ -1,48 +1,60 @@
 <meta charset="UTF-8">
+<title>Word search puzzle</title>
 <style>
   @media print {
     .configOnly {
       display: none;
     }
+  }
 
+  label {
+    margin-right: 0.5rem;
   }
 
   p#wordsList {
     font-size: 5vw;
   }
 </style>
-<p class="configOnly">Enter words below, separated by spaces (or line breaks)</p>
-<textarea class="configOnly" id="wordsInput"></textarea>
-<p class="configOnly">Enter the size of the grid (e.g., 5 for a five by five grid)</p>
-<textarea class="configOnly" id="sizeInput"></textarea>
+<section class="configOnly">
+  <h3>Word Search Puzzle</h3>
+  <p>Step 1. Enter words below, separated by spaces or line breaks. Use Latin characters (ABC), ひらがな, or
+    カタカナ.</p>
+  <textarea id="wordsInput"></textarea>
+  <p>Step 2. Enter the size of the grid (e.g., 5 for a five by five grid)</p>
+  <textarea id="sizeInput"></textarea>
 
-<p class="configOnly">
-  <input type="checkbox" id="nDirection" name="nDirection" checked>
-  <label for="nDirection">North</label>
-  —
-  <input type="checkbox" id="sDirection" name="sDirection" checked>
-  <label for="sDirection">South</label>
-  —
-  <input type="checkbox" id="wDirection" name="wDirection" checked>
-  <label for="wDirection">West</label>
-  —
-  <input type="checkbox" id="eDirection" name="eDirection" checked>
-  <label for="eDirection">East</label>
-  —
-  <input type="checkbox" id="nwDirection" name="nwDirection" checked>
-  <label for="nwDirection">Northwest</label>
-  —
-  <input type="checkbox" id="neDirection" name="neDirection" checked>
-  <label for="neDirection">Northeast</label>
-  —
-  <input type="checkbox" id="swDirection" name="swDirection" checked>
-  <label for="swDirection">Southwest</label>
-  —
-  <input type="checkbox" id="seDirection" name="seDirection" checked>
-  <label for="seDirection">Southeast</label>
-</p>
+  <p>Step 3. Check/uncheck the directions the words can go in.
+    <input type="checkbox" id="nDirection" name="nDirection" checked>
+    <label for="nDirection">North</label>
 
-<button class="configOnly" id="makePuzzle">Make puzzle</button>
+    <input type="checkbox" id="sDirection" name="sDirection" checked>
+    <label for="sDirection">South</label>
+
+    <input type="checkbox" id="wDirection" name="wDirection" checked>
+    <label for="wDirection">West</label>
+
+    <input type="checkbox" id="eDirection" name="eDirection" checked>
+    <label for="eDirection">East</label>
+
+    <input type="checkbox" id="nwDirection" name="nwDirection" checked>
+    <label for="nwDirection">Northwest</label>
+
+    <input type="checkbox" id="neDirection" name="neDirection" checked>
+    <label for="neDirection">Northeast</label>
+
+    <input type="checkbox" id="swDirection" name="swDirection" checked>
+    <label for="swDirection">Southwest</label>
+
+    <input type="checkbox" id="seDirection" name="seDirection" checked>
+    <label for="seDirection">Southeast</label>
+  </p>
+
+  <button id="makePuzzle">Step 4. Make puzzle</button>
+
+  <p>Step 5. Print. The puzzle and the key will take up the whole page.</p>
+
+  <p><a href="https://github.com/fasiha/word-search-puzzle">Code & contact</a>.</p>
+</section>
 
 <p id="wordsList"></p>
 <table style="text-align: center; width: 100vmax; table-layout: fixed" id="outputTable"></table>
